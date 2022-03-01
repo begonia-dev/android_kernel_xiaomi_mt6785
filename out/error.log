@@ -1,0 +1,195 @@
+drivers/misc/mediatek/nfc/Kconfig:22:warning: ignoring type redefinition of 'MTK_NFC_CLKBUF_ENABLE' from 'boolean' to 'tristate'
+../drivers/misc/mediatek/connectivity/common/Makefile:116: wmt_drv build-in boot.img
+../drivers/misc/mediatek/connectivity/wlan/adaptor/Makefile:53: wmt_chrdev_wifi build-in boot.img
+../drivers/misc/mediatek/connectivity/wlan/core/gen4m/Makefile:423: wlan_6785_axi build-in boot.img
+../drivers/clk/mediatek/clkdbg.c: In function ‘get_all_provider_clks.part.0’:
+../drivers/clk/mediatek/clkdbg.c:546:42: warning: dangling pointer to ‘name’ may be used [-Wdangling-pointer=]
+  546 |                         struct clk *ck = __clk_lookup(node_name);
+      |                                          ^~~~~~~~~~~~~~~~~~~~~~~
+../drivers/clk/mediatek/clkdbg.c:496:21: note: ‘name’ declared here
+  496 |         const char *name;
+      |                     ^~~~
+../drivers/clk/mediatek/clkdbg.c:573:64: warning: dangling pointer to ‘name’ may be used [-Wdangling-pointer=]
+  573 |                                 provider_clks[n].provider_name = node_name;
+      |                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~
+../drivers/clk/mediatek/clkdbg.c:496:21: note: ‘name’ declared here
+  496 |         const char *name;
+      |                     ^~~~
+../fs/kernfs/file.c: In function ‘kernfs_fop_write’:
+../fs/kernfs/file.c:338:1: warning: the frame size of 4112 bytes is larger than 2800 bytes [-Wframe-larger-than=]
+  338 | }
+      | ^
+../fs/proc/cmdline.c: In function ‘check_flag’:
+../fs/proc/cmdline.c:59:9: warning: ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]
+   59 |         bool ret = r_len == v_len && !memcmp(r_val, val, r_len);
+      |         ^~~~
+../drivers/i2c/busses/i2c-mtk.c: In function ‘mt_i2c_do_transfer’:
+../drivers/i2c/busses/i2c-mtk.c:611:12: warning: suggest explicit braces to avoid ambiguous ‘else’ [-Wdangling-else]
+  611 |         if ((i2c->total_len > 8 || i2c->msg_aux_len > 8))
+      |            ^
+../net/core/dev.c: In function ‘parseDHCPReply’:
+../net/core/dev.c:3867:9: warning: ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]
+ 3867 |         struct udphdr *uh = (struct udphdr *)(skb->data+(iph->ihl<<2));
+      |         ^~~~~~
+../drivers/md/dm-bow.c:15: warning: "SECTOR_SIZE" redefined
+   15 | #define SECTOR_SIZE 512
+      | 
+In file included from ../include/linux/device-mapper.h:12,
+                 from ../drivers/md/dm.h:14,
+                 from ../drivers/md/dm-bow.c:7:
+../include/linux/blkdev.h:1041: note: this is the location of the previous definition
+ 1041 | #define SECTOR_SIZE (1 << SECTOR_SHIFT)
+      | 
+../drivers/pinctrl/mediatek/mtk-eint.c: In function ‘mtk_eint_mask’:
+../drivers/pinctrl/mediatek/mtk-eint.c:119:9: warning: ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]
+  119 |         u32 mask = BIT(d->hwirq & 0x1f);
+      |         ^~~
+../drivers/misc/mediatek/connectivity/common/Makefile:116: wmt_drv build-in boot.img
+../drivers/misc/mediatek/connectivity/wlan/adaptor/Makefile:53: wmt_chrdev_wifi build-in boot.img
+../drivers/misc/mediatek/connectivity/wlan/core/gen4m/Makefile:423: wlan_6785_axi build-in boot.img
+../drivers/misc/mediatek/gpu/gpu_mali/mali_bifrost/mali-r25p0/drivers/gpu/arm/midgard/mali_kbase_core_linux.c: In function ‘assign_irqs’:
+../drivers/misc/mediatek/gpu/gpu_mali/mali_bifrost/mali-r25p0/drivers/gpu/arm/midgard/mali_kbase_core_linux.c:558:60: warning: suggest parentheses around arithmetic in operand of ‘|’ [-Wparentheses]
+  558 |                 kbdev->irqs[irqtag].flags = irq_res->flags & IRQF_TRIGGER_MASK | IRQF_PERF_AFFINE;
+../drivers/misc/mediatek/gpu/gpu_mali/mali_bifrost/mali-r25p0/drivers/gpu/arm/midgard/mali_kbase_core_linux.c: In function ‘kbase_ioctl’:
+../drivers/misc/mediatek/gpu/gpu_mali/mali_bifrost/mali-r25p0/drivers/gpu/arm/midgard/mali_kbase_core_linux.c:1790:37: warning: missing braces around initializer [-Wmissing-braces]
+ 1790 |         struct pm_qos_request req = {
+      |                                     ^
+../drivers/misc/mediatek/gpu/gpu_mali/mali_bifrost/mali-r25p0/drivers/gpu/arm/midgard/mali_kbase_core_linux.c:1790:37: warning: missing braces around initializer [-Wmissing-braces]
+../drivers/misc/mediatek/connectivity/wlan/core/gen4m/chips/common/fw_dl.c: In function ‘wlanDownloadPatch’:
+../drivers/misc/mediatek/connectivity/wlan/core/gen4m/chips/common/fw_dl.c:2351:9: note: ‘#pragma message: ROM code supports SEM-CTRL for ROM patch download’
+ 2351 | #pragma message("ROM code supports SEM-CTRL for ROM patch download")
+      |         ^~~~~~~
+../net/xfrm/xfrm_state.c:951:13: warning: ‘xfrm_state_print_refcount_back_trace’ defined but not used [-Wunused-function]
+  951 | static void xfrm_state_print_refcount_back_trace(struct xfrm_state *x)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../net/xfrm/xfrm_state.c:936:13: warning: ‘xfrm_state_print_back_trace’ defined but not used [-Wunused-function]
+  936 | static void xfrm_state_print_back_trace(struct xfrm_state *x)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../drivers/misc/mediatek/teei/300/tz_driver/teei_client_main.c:68:6: warning: "CONFIG_MICROTRUST_TZ_DRIVER_MTK_BOOTPROF" is not defined, evaluates to 0 [-Wundef]
+   68 | #if (CONFIG_MICROTRUST_TZ_DRIVER_MTK_BOOTPROF && CONFIG_MTPROF)
+      |      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../drivers/misc/mediatek/teei/300/tz_driver/teei_client_main.c:68:6: warning: "CONFIG_MICROTRUST_TZ_DRIVER_MTK_BOOTPROF" is not defined, evaluates to 0 [-Wundef]
+   68 | #if (CONFIG_MICROTRUST_TZ_DRIVER_MTK_BOOTPROF && CONFIG_MTPROF)
+      |      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../drivers/misc/mediatek/teei/300/tz_driver/teei_smc_call.c:30: warning: "IMSG_TAG" redefined
+   30 | #define IMSG_TAG "[tz_driver]"
+      | 
+In file included from ../drivers/misc/mediatek/teei/300/tz_driver/teei_smc_call.c:19:
+../drivers/misc/mediatek/teei/300/common/include/imsg_log.h:19: note: this is the location of the previous definition
+   19 | #define IMSG_TAG "[ISEE DRV]"
+      | 
+../drivers/misc/mediatek/teei/300/tz_driver/teei_smc_call.c:30: warning: "IMSG_TAG" redefined
+   30 | #define IMSG_TAG "[tz_driver]"
+      | 
+In file included from ../drivers/misc/mediatek/teei/300/tz_driver/teei_smc_call.c:19:
+../drivers/misc/mediatek/teei/300/common/include/imsg_log.h:19: note: this is the location of the previous definition
+   19 | #define IMSG_TAG "[ISEE DRV]"
+      | 
+../drivers/misc/mediatek/teei/300/tz_driver/switch_queue.c:46: warning: "IMSG_TAG" redefined
+   46 | #define IMSG_TAG "[tz_driver]"
+      | 
+In file included from ../drivers/misc/mediatek/teei/300/tz_driver/tz_log.h:19,
+                 from ../drivers/misc/mediatek/teei/300/tz_driver/switch_queue.c:39:
+../drivers/misc/mediatek/teei/300/common/include/imsg_log.h:19: note: this is the location of the previous definition
+   19 | #define IMSG_TAG "[ISEE DRV]"
+      | 
+../drivers/soc/mediatek/mtk-pmic-wrap.c:3248:13: warning: ‘pwrap_irq_thread_init’ defined but not used [-Wunused-function]
+ 3248 | static void pwrap_irq_thread_init(void)
+      |             ^~~~~~~~~~~~~~~~~~~~~
+../drivers/soc/mediatek/mtk-cmdq-helper.c: In function ‘cmdq_pkt_get_curr_buf_va’:
+../drivers/soc/mediatek/mtk-cmdq-helper.c:599:32: warning: returning ‘int’ from a function with return type ‘void *’ makes pointer from integer without a cast [-Wint-conversion]
+  599 |                         return -ENOMEM;
+      |                                ^
+../drivers/staging/android/ion/ion.c: In function ‘ion_client_buf_add’:
+../drivers/staging/android/ion/ion.c:122:24: warning: comparison between ‘enum ion_heap_type’ and ‘enum mtk_ion_heap_type’ [-Wenum-compare]
+  122 |         if (heap->type == ION_HEAP_TYPE_MULTIMEDIA_SEC)
+      |                        ^~
+../drivers/staging/android/ion/ion.c: In function ‘ion_client_buf_sub’:
+../drivers/staging/android/ion/ion.c:162:24: warning: comparison between ‘enum ion_heap_type’ and ‘enum mtk_ion_heap_type’ [-Wenum-compare]
+  162 |         if (heap->type == ION_HEAP_TYPE_MULTIMEDIA_SEC) {
+      |                        ^~
+../drivers/staging/android/ion/ion.c: In function ‘ion_client_buf_dump’:
+../drivers/staging/android/ion/ion.c:207:24: warning: comparison between ‘enum ion_heap_type’ and ‘enum mtk_ion_heap_type’ [-Wenum-compare]
+  207 |         if (heap->type == ION_HEAP_TYPE_MULTIMEDIA_SEC)
+      |                        ^~
+../drivers/staging/android/ion/ion.c: In function ‘ion_buffer_create’:
+../drivers/staging/android/ion/ion.c:361:24: warning: comparison between ‘enum ion_heap_type’ and ‘enum mtk_ion_heap_type’ [-Wenum-compare]
+  361 |             heap->type == ION_HEAP_TYPE_MULTIMEDIA_SEC)
+      |                        ^~
+../drivers/staging/android/ion/ion.c: In function ‘ion_debug_heap_total’:
+../drivers/staging/android/ion/ion.c:2115:28: warning: comparison between ‘enum ion_heap_type’ and ‘enum mtk_ion_heap_type’ [-Wenum-compare]
+ 2115 |                       type == ION_HEAP_TYPE_MULTIMEDIA ||
+      |                            ^~
+../drivers/staging/android/ion/ion.c:2116:28: warning: comparison between ‘enum ion_heap_type’ and ‘enum mtk_ion_heap_type’ [-Wenum-compare]
+ 2116 |                       type == ION_HEAP_TYPE_MULTIMEDIA_SEC))) {
+      |                            ^~
+../drivers/staging/android/ion/mtk/ion_drv.c: In function ‘ion_sys_cache_sync’:
+../drivers/staging/android/ion/mtk/ion_drv.c:583:38: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+  583 |                 m4u_mva_unmap_kernel((unsigned int)param->va,
+      |                                      ^
+../drivers/staging/android/ion/mtk/ion_mm_heap.c:297:12: warning: ‘ion_mm_heap_init_domain’ defined but not used [-Wunused-function]
+  297 | static int ion_mm_heap_init_domain(struct ion_mm_buffer_info *buffer_info,
+      |            ^~~~~~~~~~~~~~~~~~~~~~~
+In file included from ../drivers/staging/android/ion/mtk/ion_profile.c:13:
+../drivers/staging/android/ion/mtk/ion_profile.c: In function ‘ion_profile_init’:
+../drivers/staging/android/ion/mtk/ion_profile.h:46:37: warning: statement with no effect [-Wunused-value]
+   46 | #define mmprofile_enable_event(...) 0
+      |                                     ^
+../drivers/staging/android/ion/mtk/ion_profile.c:62:9: note: in expansion of macro ‘mmprofile_enable_event’
+   62 |         mmprofile_enable_event(ion_mmp_events[PROFILE_ALLOC], 1);
+      |         ^~~~~~~~~~~~~~~~~~~~~~
+../drivers/staging/android/ion/mtk/ion_profile.h:46:37: warning: statement with no effect [-Wunused-value]
+   46 | #define mmprofile_enable_event(...) 0
+      |                                     ^
+../drivers/staging/android/ion/mtk/ion_profile.c:63:9: note: in expansion of macro ‘mmprofile_enable_event’
+   63 |         mmprofile_enable_event(ion_mmp_events[PROFILE_MAP_KERNEL], 0);
+      |         ^~~~~~~~~~~~~~~~~~~~~~
+../drivers/staging/android/ion/mtk/ion_profile.h:46:37: warning: statement with no effect [-Wunused-value]
+   46 | #define mmprofile_enable_event(...) 0
+      |                                     ^
+../drivers/staging/android/ion/mtk/ion_profile.c:64:9: note: in expansion of macro ‘mmprofile_enable_event’
+   64 |         mmprofile_enable_event(ion_mmp_events[PROFILE_MAP_USER], 0);
+      |         ^~~~~~~~~~~~~~~~~~~~~~
+../drivers/staging/android/ion/mtk/ion_profile.h:46:37: warning: statement with no effect [-Wunused-value]
+   46 | #define mmprofile_enable_event(...) 0
+      |                                     ^
+../drivers/staging/android/ion/mtk/ion_profile.c:65:9: note: in expansion of macro ‘mmprofile_enable_event’
+   65 |         mmprofile_enable_event(ion_mmp_events[PROFILE_DMA_CLEAN_ALL], 1);
+      |         ^~~~~~~~~~~~~~~~~~~~~~
+../drivers/staging/android/ion/mtk/ion_profile.h:46:37: warning: statement with no effect [-Wunused-value]
+   46 | #define mmprofile_enable_event(...) 0
+      |                                     ^
+../drivers/staging/android/ion/mtk/ion_profile.c:66:9: note: in expansion of macro ‘mmprofile_enable_event’
+   66 |         mmprofile_enable_event(ion_mmp_events[PROFILE_DMA_FLUSH_ALL], 1);
+      |         ^~~~~~~~~~~~~~~~~~~~~~
+../drivers/staging/android/ion/mtk/ion_profile.h:46:37: warning: statement with no effect [-Wunused-value]
+   46 | #define mmprofile_enable_event(...) 0
+      |                                     ^
+../drivers/staging/android/ion/mtk/ion_profile.c:67:9: note: in expansion of macro ‘mmprofile_enable_event’
+   67 |         mmprofile_enable_event(ion_mmp_events[PROFILE_DMA_INVALID_ALL], 1);
+      |         ^~~~~~~~~~~~~~~~~~~~~~
+../drivers/staging/android/ion/mtk/ion_profile.h:46:37: warning: statement with no effect [-Wunused-value]
+   46 | #define mmprofile_enable_event(...) 0
+      |                                     ^
+../drivers/staging/android/ion/mtk/ion_profile.c:68:9: note: in expansion of macro ‘mmprofile_enable_event’
+   68 |         mmprofile_enable_event(ion_mmp_events[PROFILE_MVA_ALLOC], 1);
+      |         ^~~~~~~~~~~~~~~~~~~~~~
+../drivers/staging/android/ion/mtk/ion_profile.h:46:37: warning: statement with no effect [-Wunused-value]
+   46 | #define mmprofile_enable_event(...) 0
+      |                                     ^
+../drivers/staging/android/ion/mtk/ion_profile.c:69:9: note: in expansion of macro ‘mmprofile_enable_event’
+   69 |         mmprofile_enable_event(ion_mmp_events[PROFILE_MVA_DEALLOC], 1);
+      |         ^~~~~~~~~~~~~~~~~~~~~~
+../drivers/scsi/ufs/ufshcd.c: In function ‘ufshcd_resume’:
+../drivers/scsi/ufs/ufshcd.c:9217:9: warning: ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]
+ 9217 |         enum ufs_dev_pwr_mode old_pwr_mode;
+      |         ^~~~
+../drivers/usb/gadget/configfs.c:1619:13: warning: ‘configfs_composite_disconnect’ defined but not used [-Wunused-function]
+ 1619 | static void configfs_composite_disconnect(struct usb_gadget *gadget)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../drivers/usb/gadget/configfs.c:1594:12: warning: ‘configfs_composite_setup’ defined but not used [-Wunused-function]
+ 1594 | static int configfs_composite_setup(struct usb_gadget *gadget,
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~
+Already on 'master'
+From https://github.com/osm0sis/AnyKernel3
+ * branch            master     -> FETCH_HEAD

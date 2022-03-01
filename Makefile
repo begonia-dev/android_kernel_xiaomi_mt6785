@@ -361,32 +361,32 @@ HOST_LFS_CFLAGS := $(shell getconf LFS_CFLAGS 2>/dev/null)
 HOST_LFS_LDFLAGS := $(shell getconf LFS_LDFLAGS 2>/dev/null)
 HOST_LFS_LIBS := $(shell getconf LFS_LIBS 2>/dev/null)
 
-HOSTCC       = gcc
-HOSTCXX      = g++
-HOSTCFLAGS   := -Wall -Wmissing-prototypes -Wstrict-prototypes -O2 \
+HOSTCC       = ccache gcc
+HOSTCXX      = ccache g++
+HOSTCFLAGS   := -Wall -Wmissing-prototypes -O2 \
 		-fomit-frame-pointer -std=gnu89 $(HOST_LFS_CFLAGS)
 HOSTCXXFLAGS := -O2 $(HOST_LFS_CFLAGS)
 HOSTLDFLAGS  := $(HOST_LFS_LDFLAGS)
 HOST_LOADLIBES := $(HOST_LFS_LIBS)
 
 # Make variables (CC, etc...)
-AS		= $(CROSS_COMPILE)as
-LD		= $(CROSS_COMPILE)ld
-LDGOLD		= $(CROSS_COMPILE)ld.gold
-CC		= $(CROSS_COMPILE)gcc
-CPP		= $(CC) -E
-AR		= $(CROSS_COMPILE)ar
-NM		= $(CROSS_COMPILE)nm
-STRIP		= $(CROSS_COMPILE)strip
-OBJCOPY		= $(CROSS_COMPILE)objcopy
-OBJDUMP		= $(CROSS_COMPILE)objdump
-AWK		= awk
-GENKSYMS	= scripts/genksyms/genksyms
+AS				= ccache $(CROSS_COMPILE)as
+LD				= ccache $(CROSS_COMPILE)ld
+LDGOLD			= ccache $(CROSS_COMPILE)ld.gold
+CC				= ccache $(CROSS_COMPILE)gcc
+CPP				= ccache $(CC) -E
+AR				= ccache $(CROSS_COMPILE)ar
+NM				= ccache $(CROSS_COMPILE)nm
+STRIP			= ccache $(CROSS_COMPILE)strip
+OBJCOPY			= ccache $(CROSS_COMPILE)objcopy
+OBJDUMP			= ccache $(CROSS_COMPILE)objdump
+AWK				= awk
+GENKSYMS		= scripts/genksyms/genksyms
 INSTALLKERNEL  := installkernel
-DEPMOD		= depmod
-PERL		= perl
-PYTHON		= python
-CHECK		= sparse
+DEPMOD			= depmod
+PERL			= perl
+PYTHON			= python
+CHECK			= sparse
 
 CHECKFLAGS     := -D__linux__ -Dlinux -D__STDC__ -Dunix -D__unix__ \
 		  -Wbitwise -Wno-return-void $(CF)
@@ -417,7 +417,7 @@ LINUXINCLUDE    := \
 		$(USERINCLUDE)
 
 KBUILD_AFLAGS   := -D__ASSEMBLY__
-KBUILD_CFLAGS   := -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs \
+KBUILD_CFLAGS   := -Wall -Wundef -Wno-trigraphs \
 		   -fno-strict-aliasing -fno-common -fshort-wchar \
 		   -Werror-implicit-function-declaration \
 		   -Wno-format-security \
@@ -686,6 +686,25 @@ else
 KBUILD_CFLAGS   += -O2
 endif
 
+KBUILD_CFLAGS += $(call cc-ifversion, -gt, 0900, \
+			$(call cc-option, -Wno-psabi) \
+			$(call cc-disable-warning,maybe-uninitialized,) \
+			$(call cc-disable-warning,format,) \
+			$(call cc-disable-warning,array-bounds,) \
+			$(call cc-disable-warning,array-compare,) \
+			$(call cc-disable-warning,stringop-overread,) \
+			$(call cc-disable-warning,duplicate-decl-specifier,) \
+            $(call cc-disable-warning,strict-prototypes,) \
+			$(call cc-disable-warning,misleading-indentation,) \
+            $(call cc-disable-warning,unused-variable,) \
+			$(call cc-disable-warning,sizeof-pointer-memaccess,) \
+			$(call cc-disable-warning,memset-elt-size,) \
+            $(call cc-disable-warning,address,) \
+			$(call cc-disable-warning,switch-unreachable,) \
+			$(call cc-disable-warning,unused-result,) \
+			$(call cc-disable-warning,array-parameter,) \
+			$(call cc-disable-warning,stringop-overflow,))
+			
 # Tell gcc to never replace conditional load with a non-conditional one
 KBUILD_CFLAGS	+= $(call cc-option,--param=allow-store-data-races=0)
 KBUILD_CFLAGS	+= $(call cc-option,-fno-allow-store-data-races)
@@ -950,7 +969,7 @@ KBUILD_CFLAGS   += $(call cc-option,-fconserve-stack)
 KBUILD_CFLAGS   += $(call cc-option,-Werror=implicit-int)
 
 # require functions to have arguments in prototypes, not empty 'int foo()'
-KBUILD_CFLAGS   += $(call cc-option,-Werror=strict-prototypes)
+KBUILD_CFLAGS   += 
 
 # Prohibit date/time macros, which would make the build non-deterministic
 KBUILD_CFLAGS   += $(call cc-option,-Werror=date-time)
