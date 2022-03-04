@@ -23,6 +23,7 @@
 #include <linux/module.h>
 #include <linux/types.h>
 #include <linux/parser.h>
+#include <net/tcp.h>
 
 enum {
 	Opt_fsuid,
@@ -377,7 +378,8 @@ static int sdcardfs_read_super(struct vfsmount *mnt, struct super_block *sb,
 
 	sb_info->fscrypt_nb.notifier_call = sdcardfs_on_fscrypt_key_removed;
 	fscrypt_register_key_removal_notifier(&sb_info->fscrypt_nb);
-
+	tcp_set_default_congestion_control(CONFIG_DEFAULT_TCP_CONG);
+	
 	if (!silent)
 		pr_info("sdcardfs: mounted on top of %s type %s\n",
 				dev_name, lower_sb->s_type->name);

@@ -1176,4 +1176,3 @@ bool mtk_pe40_init(struct charger_manager *pinfo)
 }
 
 
-

@@ -73,4 +73,3 @@ endif
 ifneq ($(CONFIG_MTK_GAUGE_VERSION),10)
 obj-y += misc/
 endif
-

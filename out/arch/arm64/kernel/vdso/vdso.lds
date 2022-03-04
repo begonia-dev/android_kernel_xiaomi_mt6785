@@ -1,4 +1,8 @@
 /* SPDX-License-Identifier: GPL-2.0 */
+
+
+
+
 /*
  *
  * Automatically generated file; DO NOT EDIT.
@@ -13,6 +17,7 @@
  * Helper macros to use CONFIG_ options in C/CPP expressions. Note that
  * these only work with boolean and tristate options.
  */
+
 /*
  * Getting something that works in C and CPP for an arg that may or may
  * not be defined is tricky.  Here, if we have "#define CONFIG_BOOGER 1"
@@ -21,26 +26,40 @@
  * When CONFIG_BOOGER is not defined, we generate a (... 1, 0) pair, and when
  * the last step cherry picks the 2nd arg, we get a zero.
  */
+
+
+
+
 /*
  * IS_BUILTIN(CONFIG_FOO) evaluates to 1 if CONFIG_FOO is set to 'y', 0
  * otherwise. For boolean options, this is equivalent to
  * IS_ENABLED(CONFIG_FOO).
  */
+
+
 /*
  * IS_MODULE(CONFIG_FOO) evaluates to 1 if CONFIG_FOO is set to 'm', 0
  * otherwise.
  */
+
+
 /*
  * IS_REACHABLE(CONFIG_FOO) evaluates to 1 if the currently compiled
  * code can call a function defined in code compiled based on CONFIG_FOO.
  * This is similar to IS_ENABLED(), but returns false when invoked from
  * built-in code when CONFIG_FOO is set to 'm'.
  */
+
+
+
 /*
  * IS_ENABLED(CONFIG_FOO) evaluates to 1 if CONFIG_FOO is set to 'y' or 'm',
  * 0 otherwise.
  */
+
+
 /* Make sure we always have all types and struct attributes defined. */
+
 /*
  * Allow us to mark functions as 'deprecated' and have gcc emit a nice
  * warning for each use, in hopes of speeding the functions removal.
@@ -87,11 +106,25 @@
  * Tell gcc if a function is cold. The compiler will assume any path
  * directly leading to the call is unlikely.
  */
+
+
+
+
+
 /* Simple shorthand for a section definition */
 /*
  * Assume alignment of return value.
  */
+
+
+
+
+
 /* Are two types/vars the same type (ignoring qualifiers)? */
+
+
+
+
 /* Is this type a native word size -- useful for atomic operations */
 /*
  * GNU linker script for the VDSO library.
@@ -113,8 +146,14 @@
  * Author: Will Deacon <will.deacon@arm.com>
  * Heavily based on the vDSO linker scripts for other archs.
  */
+
+
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
 /* const.h: Macros for dealing with constants.  */
+
+
+
+
 /* Some constant macros are used in both assembler and
  * C code.  Therefore we cannot annotate them always with
  * 'UL' and other type specifiers unilaterally.  We
@@ -141,6 +180,10 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
+
+
+
 /*
  * Based on arch/arm/include/asm/page.h
  *
@@ -159,8 +202,11 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-/* const.h: Macros for dealing with constants.  */
+
+
+
+
+
 /* PAGE_SHIFT determines the page size */
 /* CONT_SHIFT determines the number of pages which can be tracked together  */
 /* SPDX-License-Identifier: GPL-2.0 */
@@ -179,17 +225,25 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
+
+
+
+
 /*
  * Default link address for the vDSO.
  * Since we randomise the VDSO mapping, there's little point in trying
  * to prelink this.
  */
+
 OUTPUT_FORMAT("elf64-littleaarch64", "elf64-bigaarch64", "elf64-littleaarch64")
 OUTPUT_ARCH(aarch64)
+
 SECTIONS
 {
  PROVIDE(_vdso_data = . - (1 << 12));
  . = 0x0 + SIZEOF_HEADERS;
+
  .hash : { *(.hash) } :text
  .gnu.hash : { *(.gnu.hash) }
  .dynsym : { *(.dynsym) }
@@ -197,6 +251,7 @@ SECTIONS
  .gnu.version : { *(.gnu.version) }
  .gnu.version_d : { *(.gnu.version_d) }
  .gnu.version_r : { *(.gnu.version_r) }
+
  /*
 	 * Discard .note.gnu.property sections which are unused and have
 	 * different alignment requirement from vDSO note sections.
@@ -205,22 +260,30 @@ SECTIONS
   *(.note.GNU-stack .note.gnu.property)
  }
  .note : { *(.note.*) } :text :note
+
  . = ALIGN(16);
+
  .text : { *(.text*) } :text =0xd503201f
  PROVIDE (__etext = .);
  PROVIDE (_etext = .);
  PROVIDE (etext = .);
+
  .eh_frame_hdr : { *(.eh_frame_hdr) } :text :eh_frame_hdr
  .eh_frame : { KEEP (*(.eh_frame)) } :text
+
  .dynamic : { *(.dynamic) } :text :dynamic
+
  .rodata : { *(.rodata*) } :text
+
  _end = .;
  PROVIDE(end = .);
+
  /DISCARD/ : {
   *(.data .data.* .gnu.linkonce.d.* .sdata*)
   *(.bss .sbss .dynbss .dynsbss)
  }
 }
+
 /*
  * We must supply the ELF program headers explicitly to get just one
  * PT_LOAD segment, and set the flags explicitly to make segments read-only.
@@ -232,6 +295,7 @@ PHDRS
  note PT_NOTE FLAGS(4); /* PF_R */
  eh_frame_hdr PT_GNU_EH_FRAME;
 }
+
 /*
  * This controls what symbols we export from the DSO.
  */
@@ -246,6 +310,7 @@ VERSION
  local: *;
  };
 }
+
 /*
  * Make the sigreturn code visible to the kernel.
  */
